@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import { Counter } from './components/core-concept/React-component';
 import { reactHeader } from './components/core-concept/React-element';

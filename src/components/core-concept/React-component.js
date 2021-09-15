@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { PureButton } from './React-pure-component';
 export class Counter extends React.Component {
     constructor(){
         super();
@@ -30,8 +30,10 @@ export class Counter extends React.Component {
                     {this.state.counter}
                 </p>
                 <div>
-                    <input type='button' onClick={this.clicked} value='Increment'/>
-                    <input type='button' onClick={this.clicked} value='Decrement'/>
+
+                    <PureButton value='Increment' clickCb={this.clicked}></PureButton>
+                    <PureButton value='Decrement' clickCb={this.clicked}></PureButton>
+                    
                 </div>
             </div>
             
