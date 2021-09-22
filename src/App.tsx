@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class App extends Component<{}, {}, any> {
+export class App extends Component<unknown, unknown, unknown> {
   public render() {
     return (
       <div>
