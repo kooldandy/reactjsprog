@@ -2,7 +2,11 @@ import { Component } from 'react';
 import { IMovieCard, MovieCard } from '../moviecards/MovieCard';
 import './MenuList.css';
 
-export class MovieList extends Component<unknown, any, unknown> {
+type MovieListState = {
+  data: Array<IMovieCard>; // like this
+};
+
+export class MovieList extends Component<unknown, MovieListState, unknown> {
   constructor(props: unknown) {
     super(props);
     this.state = {
@@ -20,7 +24,7 @@ export class MovieList extends Component<unknown, any, unknown> {
     fetch('http://localhost:4000/movies/?limit=12')
       .then((res) => res.json())
       .then((movieList: any) => {
-        const state: any = this.state;
+        const state: MovieListState = this.state;
         state.data = movieList.data;
         this.setState({ ...state });
       });
