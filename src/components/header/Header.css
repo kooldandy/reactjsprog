@@ -1,0 +1,82 @@
+.header {
+  min-height: 50vh;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(30px + 2vmin);
+  color: white; */
+  position: relative;
+  margin: 0;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.header-image {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  /* background-image: url('/public/Bitmapbg-header.png'); */
+  background-image: url('https://preview.redd.it/5lqpcm3o73r21.jpg?width=2324&format=pjpg&auto=webp&s=5afa0d2321b511690baf84cdee281164ee96a09d');
+  mix-blend-mode: normal;
+  opacity: 0.3;
+  filter: blur(4.15485px);
+  transition: 7s;
+  /* filter: contrast(70%); */
+  /* filter: drop-shadow(8px 8px 10px gray); */
+}
+.header-image:hover{
+  opacity: 0.5;
+  /* filter: contrast(70%) drop-shadow(8px 8px 10px gray);  */
+}
+
+.header-title {
+  color: #f65261;
+  position: absolute;
+  width: 290px;
+  height: 34px;
+  top: 35px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 35px;
+  line-height: 24px;
+  opacity: 0.8;
+  transition: 3s;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.header-title:hover {opacity: 1}
+
+.add-movie {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  height: 41px;
+  width: 174px;
+  background: #606060;
+  border-radius: 4px;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 2s;
+}
+
+.btn:hover {opacity: 1}
+
+.btn-text {
+  position: absolute;
+  height: 24px;
+  left: 10.17%;
+  right: 10.17%;
+  top: calc(50% - 24px / 2);
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: right;
+  text-transform: uppercase;
+
+  color: #f65261;
+}

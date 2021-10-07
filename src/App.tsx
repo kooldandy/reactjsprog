@@ -1,11 +1,38 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import ErrorBoundry from './components/errorboundry/ErrorBoundry';
+import Header from './components/header/Header';
+import { MovieList } from './components/menulist/MovieList';
+import './App.css';
 
-export class App extends Component<unknown, unknown, unknown> {
+type AppState = {
+  isEveryThingOk: boolean;
+};
+export class App extends Component<unknown, AppState, unknown> {
+  constructor(props: unknown) {
+    super(props);
+    this.state = {
+      isEveryThingOk: true,
+    };
+  }
+
+  callBack = (param: boolean) => {
+    console.log(param);
+    const state: AppState = this.state;
+    state.isEveryThingOk = param;
+
+    this.setState({ ...state });
+  };
+
   public render() {
     return (
-      <div>
-        <h1>React App</h1>
-      </div>
-    )
+      <>
+        <div className="App">
+          <Header />
+          <ErrorBoundry isEveryThingOk={this.state.isEveryThingOk}>
+            <MovieList isEveryThingOkCB={this.callBack} />
+          </ErrorBoundry>
+        </div>
+      </>
+    );
   }
 }

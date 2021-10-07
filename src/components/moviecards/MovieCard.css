@@ -1,0 +1,12 @@
+.movie-card {
+  /* background: royalblue; */
+  /* opacity: 0.7; */
+  filter: contrast(120%);
+  height: 60vh;
+  width: 45vh;
+}
+
+.poster {
+  width: inherit;
+  height: inherit;
+}
