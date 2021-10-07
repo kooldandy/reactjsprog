@@ -6,7 +6,6 @@ import './MenuList.css';
 type MovieListState = {
   data: Array<IMovieCard>; // like this
 };
-
 const movieListPropTypes = {
   isEveryThingOkCB: PropTypes.func.isRequired,
 };
