@@ -1,0 +1,10 @@
+.movie-card{
+    background: royalblue;
+    height: 60vh;
+    width: 45vh;
+}
+
+.poster{
+    width: inherit;
+    height: inherit;
+}
