@@ -1,11 +1,5 @@
 .header {
   min-height: 50vh;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(30px + 2vmin);
-  color: white; */
   position: relative;
   margin: 0;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
@@ -16,14 +10,12 @@
   left: 0;
   width: 100%;
   height: 50vh;
-  /* background-image: url('/public/Bitmapbg-header.png'); */
-  background-image: url('https://preview.redd.it/5lqpcm3o73r21.jpg?width=2324&format=pjpg&auto=webp&s=5afa0d2321b511690baf84cdee281164ee96a09d');
+  background: url(https://preview.redd.it/5lqpcm3o73r21.jpg?width=2324&format=pjpg&auto=webp&s=5afa0d2321b511690baf84cdee281164ee96a09d);
+  background-size: cover;
   mix-blend-mode: normal;
   opacity: 0.3;
   filter: blur(4.15485px);
   transition: 7s;
-  /* filter: contrast(70%); */
-  /* filter: drop-shadow(8px 8px 10px gray); */
 }
 .header-image:hover{
   opacity: 0.5;

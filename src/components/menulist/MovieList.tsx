@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { IMovieCard, MovieCard } from '../moviecards/MovieCard';
 import PropTypes from 'prop-types';
 import './MenuList.css';
+import { CallBackTypesEnum } from '../../enum';
 
 type MovieListState = {
   data: Array<IMovieCard>; // like this
@@ -37,11 +38,11 @@ export class MovieList extends Component<
         const state: MovieListState = this.state;
         state.data = movieList.data;
         this.setState({ ...state });
-        this.props.isEveryThingOkCB(true);
+        this.props.isEveryThingOkCB(true, CallBackTypesEnum.ISEVERYTHINGOK);
       })
       .catch((err: any) => {
         console.error(err);
-        this.props.isEveryThingOkCB(false);
+        this.props.isEveryThingOkCB(false, CallBackTypesEnum.ISEVERYTHINGOK);
       });
   };
 

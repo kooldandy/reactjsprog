@@ -24,10 +24,10 @@ export class MovieCard extends Component<MovieCardTypes, unknown, unknown> {
   }
 
   render() {
-    const { title, poster_path } = this.props;
+    const { poster_path } = this.props;
     return (
       <div className="movie-card">
-        <h3>{title}</h3>
+        {/* <h3>{title}</h3> */}
         <img src={poster_path} alt="" className="poster" />
       </div>
     );
