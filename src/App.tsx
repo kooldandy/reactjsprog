@@ -17,10 +17,11 @@ export class App extends Component<unknown, AppState, unknown> {
       isEveryThingOk: true,
       showAddMovie: false,
     };
+
+    this.handleChildUnmount = this.handleChildUnmount.bind(this);
   }
 
   callBack = (param: boolean, typeOfCb: CallBackTypesEnum) => {
-    console.log(param);
     const state: AppState = this.state;
     if (typeOfCb === CallBackTypesEnum.ISEVERYTHINGOK) {
       state.isEveryThingOk = param;
@@ -31,15 +32,33 @@ export class App extends Component<unknown, AppState, unknown> {
     this.setState({ ...state });
   };
 
+  handleChildUnmount() {
+    this.setState({ showAddMovie: false });
+  }
+
   public render() {
     const showModal = this.state.showAddMovie;
     const modalPopUp = showModal ? (
-      <ModalPopUp>
-        <div>Modal</div>
+      <ModalPopUp unmountMe={this.handleChildUnmount}>
+        {{
+          header: (
+            <>
+              <p>Add Movies</p>
+            </>
+          ),
+          body: (
+            <>
+              <p>Body</p>
+            </>
+          ),
+          footer: (
+            <>
+              <button value="Submit">Submit</button>
+            </>
+          ),
+        }}
       </ModalPopUp>
-    ) : (
-      <></>
-    );
+    ) : null;
 
     return (
       <>

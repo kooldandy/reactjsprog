@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { CallBackTypesEnum } from '../../enum';
 
 type HeaderState = {
-  showAddMovie: boolean;
+  //showAddMovie: boolean;
 };
 const headerPropTypes = {
   showAddMovieCB: PropTypes.func.isRequired,
@@ -17,22 +17,13 @@ type HeaderTypes = PropTypes.InferProps<typeof headerPropTypes>;
 export class Header extends Component<HeaderTypes, HeaderState, unknown> {
   constructor(props: HeaderTypes) {
     super(props);
+    this.state = {};
+
     this.clickHandler = this.clickHandler.bind(this);
-    this.state = {
-      showAddMovie: false,
-    };
   }
 
   clickHandler = () => {
-    const state: HeaderState = this.state;
-    if (!state.showAddMovie) {
-      state.showAddMovie = true;
-    }
-    this.setState({ ...state });
-    this.props.showAddMovieCB(
-      this.state.showAddMovie,
-      CallBackTypesEnum.SHOWADDMOVIE
-    );
+    this.props.showAddMovieCB(true, CallBackTypesEnum.SHOWADDMOVIE);
   };
   render() {
     return (
