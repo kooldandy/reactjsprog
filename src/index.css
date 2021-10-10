@@ -13,3 +13,101 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.form-caption {
+  position: relative;
+  height: 20px;
+  left: 0;
+  top: 0;
+  margin-bottom: 10px;
+  padding: 0;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height */
+
+  letter-spacing: 0.888889px;
+  text-transform: uppercase;
+  text-align: initial;
+  color: #f65261;
+  text-transform: uppercase;
+  mix-blend-mode: normal;
+  opacity: 0.8;
+}
+
+.input {
+  background: rgba(50, 50, 50, 0.948044);
+  mix-blend-mode: normal;
+  opacity: 0.8;
+  border-radius: 4px;
+  border: 1px solid rgba(50, 50, 50, 0.948044);
+  line-height: 25px;
+  transition: 2s;
+  color: antiquewhite;
+}
+
+.textarea {
+  width: 859px;
+  height: 200px;
+  background: rgba(50, 50, 50, 0.948044);
+  mix-blend-mode: normal;
+  opacity: 0.8;
+  border-radius: 4px;
+  border: 1px solid rgba(50, 50, 50, 0.948044);
+  transition: 2s;
+  color: antiquewhite;
+}
+.input:hover,
+.textarea:hover {
+  border: 1px solid #fff;
+}
+.input:focus,
+.textarea:focus {
+  outline: none;
+}
+.form-input-big {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 500px;
+  height: 47px;
+}
+
+.form-input-small {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 300px;
+  height: 47px;
+}
+
+.button {
+  width: 121px;
+  height: 38px;
+  margin: 15px 20px;
+  cursor: pointer;
+  opacity: 0.85;
+  box-sizing: border-box;
+  border-radius: 4px;
+  transition: 2s;
+}
+
+.button:hover {
+  opacity: 1;
+}
+
+.btn-active {
+  background: #f65261;
+  color: #fff;
+  border: none;
+}
+
+.btn-inactive {
+  border: 1.5px solid #f65261;
+  background: #232323;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1), 0px 2px 10px rgba(0, 0, 0, 0.07),
+    0px 10px 20px rgba(0, 0, 0, 0.05), 0px 10px 50px rgba(0, 0, 0, 0.05);
+    color: #f65261;
+}

@@ -3,8 +3,8 @@ import ErrorBoundry from './components/errorboundry/ErrorBoundry';
 import { Header } from './components/header/Header';
 import { MovieList } from './components/menulist/MovieList';
 import './App.css';
-import { ModalPopUp } from './components/modal/Modal';
 import { CallBackTypesEnum } from './enum';
+import { AddMoviePopUp } from './components/addmovie/AddMovie';
 
 type AppState = {
   isEveryThingOk: boolean;
@@ -37,27 +37,9 @@ export class App extends Component<unknown, AppState, unknown> {
   }
 
   public render() {
-    const showModal = this.state.showAddMovie;
-    const modalPopUp = showModal ? (
-      <ModalPopUp unmountMe={this.handleChildUnmount}>
-        {{
-          header: (
-            <>
-              <p>Add Movies</p>
-            </>
-          ),
-          body: (
-            <>
-              <p>Body</p>
-            </>
-          ),
-          footer: (
-            <>
-              <button value="Submit">Submit</button>
-            </>
-          ),
-        }}
-      </ModalPopUp>
+    const showAddMovieModal = this.state.showAddMovie;
+    const modalPopUp = showAddMovieModal ? (
+      <AddMoviePopUp unmountMe={this.handleChildUnmount}></AddMoviePopUp>
     ) : null;
 
     return (
