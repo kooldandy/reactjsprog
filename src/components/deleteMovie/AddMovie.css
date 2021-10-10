@@ -1,0 +1,29 @@
+.add-movie-header {
+  position: relative;
+  padding: 0;
+  height: 49px;
+  left: 0;
+  top: 0px;
+  text-align: initial;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 49px;
+  /* identical to box height */
+
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  color: #ffffff;
+}
+
+.add-movie-body{
+ display: flex;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ align-items: center;
+}
+
+.footer{
+    text-align: end;
+}

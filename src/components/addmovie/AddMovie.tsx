@@ -8,6 +8,7 @@ import './AddMovie.css';
 
 const modalPopupPropTypes = {
   unmountMe: PropTypes.func.isRequired,
+  typeOfPopUp: PropTypes.string.isRequired,
 };
 
 type ModalPopUpTypes = PropTypes.InferProps<typeof modalPopupPropTypes>;
@@ -23,7 +24,10 @@ export class AddMoviePopUp extends Component<
 
   render() {
     const modalPopUp = (
-      <ModalPopUp unmountMe={this.props.unmountMe}>
+      <ModalPopUp
+        unmountMe={this.props.unmountMe}
+        typeOfPopUp={this.props.typeOfPopUp}
+      >
         {{
           header: (
             <>

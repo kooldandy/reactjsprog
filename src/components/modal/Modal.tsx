@@ -11,6 +11,7 @@ type ModalPopUpState = {
 
 const modalPopupPropTypes = {
   unmountMe: PropTypes.func.isRequired,
+  typeOfPopUp: PropTypes.string.isRequired,
   children: {
     header: PropTypes.instanceOf(Element).isRequired,
     body: PropTypes.instanceOf(Element).isRequired,
@@ -37,7 +38,7 @@ export class ModalPopUp extends Component<
     const state: ModalPopUpState = this.state;
     state.showPopUp = false;
     this.setState({ ...state });
-    this.props.unmountMe();
+    this.props.unmountMe(this.props.typeOfPopUp);
   };
 
   render() {
