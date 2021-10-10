@@ -9,6 +9,7 @@ type MovieListState = {
 };
 const movieListPropTypes = {
   isEveryThingOkCB: PropTypes.func.isRequired,
+  amendMovieCB: PropTypes.func.isRequired,
 };
 
 type MovieListTypes = PropTypes.InferProps<typeof movieListPropTypes>;
@@ -59,6 +60,7 @@ export class MovieList extends Component<
               key={movie.id}
               id={movie.id}
               poster_path={movie.poster_path}
+              amendMovieCB={this.props.amendMovieCB}
             ></MovieCard>
           );
         })}
