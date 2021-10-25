@@ -1,13 +1,25 @@
 import { Component } from 'react';
 import { IMovieCard, MovieCard } from '../moviecards/MovieCard';
+import PropTypes from 'prop-types';
 import './MenuList.css';
+import { CallBackTypesEnum } from '../../enum';
 
 type MovieListState = {
   data: Array<IMovieCard>; // like this
 };
+const movieListPropTypes = {
+  isEveryThingOkCB: PropTypes.func.isRequired,
+  amendMovieCB: PropTypes.func.isRequired,
+};
 
-export class MovieList extends Component<unknown, MovieListState, unknown> {
-  constructor(props: unknown) {
+type MovieListTypes = PropTypes.InferProps<typeof movieListPropTypes>;
+
+export class MovieList extends Component<
+  MovieListTypes,
+  MovieListState,
+  unknown
+> {
+  constructor(props: MovieListTypes) {
     super(props);
     this.state = {
       data: [],
@@ -27,6 +39,11 @@ export class MovieList extends Component<unknown, MovieListState, unknown> {
         const state: MovieListState = this.state;
         state.data = movieList.data;
         this.setState({ ...state });
+        this.props.isEveryThingOkCB(true, CallBackTypesEnum.ISEVERYTHINGOK);
+      })
+      .catch((err: any) => {
+        console.error(err);
+        this.props.isEveryThingOkCB(false, CallBackTypesEnum.ISEVERYTHINGOK);
       });
   };
 
@@ -43,6 +60,7 @@ export class MovieList extends Component<unknown, MovieListState, unknown> {
               key={movie.id}
               id={movie.id}
               poster_path={movie.poster_path}
+              amendMovieCB={this.props.amendMovieCB}
             ></MovieCard>
           );
         })}
