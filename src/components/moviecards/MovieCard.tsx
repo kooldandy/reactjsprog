@@ -10,19 +10,18 @@ import PropTypes from 'prop-types';
 import './MovieCard.css';
 import { CallBackTypesEnum } from '../../enum';
 
-export interface IMovieCard {
-  title: string;
-  overview: string;
-  id: string;
-  poster_path: string;
-}
-
 const moviecardPropTypes = {
-  title: PropTypes.string.isRequired,
-  overview: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  poster_path: PropTypes.string.isRequired,
-  amendMovieCB: PropTypes.func.isRequired,
+  // title: PropTypes.string.isRequired,
+  // overview: PropTypes.string.isRequired,
+  // id: PropTypes.string.isRequired,
+  // poster_path: PropTypes.string.isRequired,
+  eventCallBack: PropTypes.func.isRequired,
+  movieDetails: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 type MovieCardTypes = PropTypes.InferProps<typeof moviecardPropTypes>;
@@ -41,6 +40,8 @@ export class MovieCard extends Component<
     this.state = {
       showAmendPopup: false,
     };
+
+    this.showMovieDetails = this.showMovieDetails.bind(this);
   }
 
   componentDidMount() {
@@ -55,42 +56,48 @@ export class MovieCard extends Component<
     };
   }
 
-  togglePopUpHandler = (param: boolean) => {
+  togglePopUpHandler = (event: Event, param: boolean) => {
+    event.stopPropagation();
     this.setState({ showAmendPopup: param });
   };
 
-  amendHandler = (param: boolean, type: CallBackTypesEnum) => {
-    this.props.amendMovieCB(true, type);
+  amendHandler = (event: Event, param: boolean, type: CallBackTypesEnum) => {
+    event.stopPropagation();
+    this.props.eventCallBack(true, type);
     this.setState({ showAmendPopup: false });
   };
 
+  showMovieDetails = () => {
+    this.props.eventCallBack(
+      true,
+      CallBackTypesEnum.SHOWMOVIEDETAILS,
+      this.props.movieDetails
+    );
+  };
+
   render() {
-    const { poster_path } = this.props;
+    const { poster_path } = this.props.movieDetails;
     const amendPopUp = this.state.showAmendPopup ? (
       <div className="edit-option">
         <p
           className="cancle"
-          onClick={this.togglePopUpHandler.bind(this, false)}
+          onClick={(evt: any) => this.togglePopUpHandler(evt, false)}
         >
           x
         </p>
         <p
           className="option"
-          onClick={this.amendHandler.bind(
-            this,
-            true,
-            CallBackTypesEnum.EDITMOVIE
-          )}
+          onClick={(evt: any) =>
+            this.amendHandler(evt, true, CallBackTypesEnum.EDITMOVIE)
+          }
         >
           Edit
         </p>
         <p
           className="option"
-          onClick={this.amendHandler.bind(
-            this,
-            true,
-            CallBackTypesEnum.DELETEMOVIE
-          )}
+          onClick={(evt: any) =>
+            this.amendHandler(evt, true, CallBackTypesEnum.DELETEMOVIE)
+          }
         >
           Delete
         </p>
@@ -98,12 +105,12 @@ export class MovieCard extends Component<
     ) : null;
 
     return (
-      <div className="movie-card">
+      <div className="movie-card" role="button" onClick={this.showMovieDetails}>
         <div className="amend">
           <div
             className="amend-icon"
             role="button"
-            onClick={this.togglePopUpHandler.bind(this, true)}
+            onClick={(evt: any) => this.togglePopUpHandler(evt, true)}
           >
             ...
           </div>

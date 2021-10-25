@@ -3,6 +3,7 @@
   filter: contrast(120%);
   height: 60vh;
   width: 45vh;
+  cursor: pointer;
 }
 
 .poster {

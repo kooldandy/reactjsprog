@@ -1,15 +1,16 @@
 import { Component } from 'react';
-import { IMovieCard, MovieCard } from '../moviecards/MovieCard';
+import { MovieCard } from '../moviecards/MovieCard';
 import PropTypes from 'prop-types';
 import './MenuList.css';
 import { CallBackTypesEnum } from '../../enum';
+import { IMovieCard } from '../../interface';
 
 type MovieListState = {
   data: Array<IMovieCard>; // like this
 };
 const movieListPropTypes = {
   isEveryThingOkCB: PropTypes.func.isRequired,
-  amendMovieCB: PropTypes.func.isRequired,
+  eventCallBack: PropTypes.func.isRequired,
 };
 
 type MovieListTypes = PropTypes.InferProps<typeof movieListPropTypes>;
@@ -55,12 +56,9 @@ export class MovieList extends Component<
         {movieList.map((movie: IMovieCard) => {
           return (
             <MovieCard
-              title={movie.title}
-              overview={movie.overview}
+              movieDetails={movie}
               key={movie.id}
-              id={movie.id}
-              poster_path={movie.poster_path}
-              amendMovieCB={this.props.amendMovieCB}
+              eventCallBack={this.props.eventCallBack}
             ></MovieCard>
           );
         })}
