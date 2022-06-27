@@ -3,5 +3,6 @@ enum CallBackTypesEnum {
   ISEVERYTHINGOK = 'isEveryThingOk',
   EDITMOVIE = 'ediMovie',
   DELETEMOVIE = 'deleteMovie',
+  SHOWMOVIEDETAILS = 'showMovieDetails',
 }
 export { CallBackTypesEnum };

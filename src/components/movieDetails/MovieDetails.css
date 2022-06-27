@@ -1,0 +1,25 @@
+.movie-details {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background: #232323;
+  gap: 10px;
+}
+
+.image {
+  width: 323.41px;
+  height: 386px;
+}
+
+.details {
+  width: 698px;
+  height: 292px;
+  position: relative;
+}
+
+.details .cancle {
+  float: right;
+  width: 21px;
+  height: 21px;
+}
